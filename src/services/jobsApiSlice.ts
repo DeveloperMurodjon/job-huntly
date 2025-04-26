@@ -1,3 +1,4 @@
+"useClient";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { jobsApiT } from "@/lib/types";
 
