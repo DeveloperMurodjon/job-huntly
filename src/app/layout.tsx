@@ -1,4 +1,3 @@
-"use client";
 import type { Metadata } from "next";
 import { Epilogue, Inter, Red_Hat_Display } from "next/font/google";
 import "./globals.css";
