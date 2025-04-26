@@ -6,13 +6,13 @@ function NavBar() {
   return (
     <div className="flex items-center justify-between w-full">
       <div className="flex items-center gap-4">
-        <Link href={"/src/app/jobs/page.tsx"}>
+        <Link href={"/jobs"}>
           <p className="text-neutrals-80 font-medium text-base leading-[160%]">
             Find Jobs
           </p>
         </Link>
 
-        <Link href={"/src/app/specialists/page.tsx"}>
+        <Link href={"/specialists"}>
           <p className="text-neutrals-80 font-medium text-base leading-[160%]">
             Find Specialsts
           </p>
