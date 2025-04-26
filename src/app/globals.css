@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+@utility container {
+  padding-inline: 20px;
+  margin-inline: auto;
+  max-width: 1194px;
+}
+h1 {
+  font-family: var(--font-epilogue);
+}
+
+p {
+  font-family: var(--font-inter);
+}
+
+button {
+  font-family: var(--font-redhat);
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -8,8 +25,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-neutrals-100: var(--neutrals-100);
+  --font-epilogue: "Epilogue";
+  --font-inter: "Inter";
+  --font-redhat: "Red_Hat_Display";
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +41,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Epilogue", sans-serif;
 }
