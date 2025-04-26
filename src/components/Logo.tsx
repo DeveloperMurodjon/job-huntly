@@ -5,7 +5,7 @@ import React from "react";
 
 function Logo() {
   return (
-    <div>
+    <div className="">
       <Link href={"/"}>
         <div className="flex gap-2 items-center">
           <Image alt="logo" src={"/Logo.png"} width={32} height={32} />

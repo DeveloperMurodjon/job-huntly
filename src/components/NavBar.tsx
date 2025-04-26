@@ -4,25 +4,24 @@ import { ModeToggle } from "./index";
 import Link from "next/link";
 function NavBar() {
   return (
-    <div className="flex items-center justify-between w-full">
+    <nav className="flex items-center  justify-between w-full">
       <div className="flex items-center gap-4">
         <Link href={"/jobs"}>
-          <p className="text-neutrals-80 font-medium text-base leading-[160%]">
+          <p className="text-neutrals-80 font-medium text-base leading-[160%] dark:text-white">
             Find Jobs
           </p>
         </Link>
 
         <Link href={"/specialists"}>
-          <p className="text-neutrals-80 font-medium text-base leading-[160%]">
+          <p className="text-neutrals-80 font-medium text-base leading-[160%] dark:text-white">
             Find Specialsts
           </p>
         </Link>
       </div>
 
       <div className="flex items-center gap-4">
-        <ModeToggle />
         <Link href={"/login"}>
-          <p className="bg-white  text-brand-primary font-bold py-3 px-6 text-base leading-[160%]">
+          <p className="bg-white border-r border-[#D6DDEB] text-brands-primary font-bold py-3 px-6 text-base leading-[160%]">
             Login
           </p>
         </Link>
@@ -31,8 +30,9 @@ function NavBar() {
             Register
           </p>
         </Link>
+        <ModeToggle />
       </div>
-    </div>
+    </nav>
   );
 }
 
