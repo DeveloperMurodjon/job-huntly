@@ -1,14 +1,19 @@
-"use client";
 import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/query";
+import authReducer from "@/features/auth/authSlice";
+import { authApi } from "../authApiSlice";
+import { usersApi } from "../usersApiSlice";
 import { jobsApi } from "../jobsApiSlice";
 
 export const store = configureStore({
   reducer: {
+    auth: authReducer,
+    [authApi.reducerPath]: authApi.reducer,
+    [usersApi.reducerPath]: usersApi.reducer,
     [jobsApi.reducerPath]: jobsApi.reducer,
   },
-  middleware: (getDefaultMiddleWare) =>
-    getDefaultMiddleWare().concat(jobsApi.middleware),
+  middleware: (g) =>
+    g().concat(authApi.middleware, usersApi.middleware, jobsApi.middleware),
 });
 
-setupListeners(store.dispatch);
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

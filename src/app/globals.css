@@ -7,14 +7,7 @@
   margin-inline: auto;
   max-width: 1194px;
 }
-h1,
-p {
-  font-family: var(--font-epilogue);
-}
 
-button {
-  font-family: var(--font-redhat);
-}
 header {
   background-color: transparent;
 }

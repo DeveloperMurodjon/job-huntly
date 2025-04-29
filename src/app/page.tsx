@@ -1,5 +1,6 @@
 import {
   ExploreCategory,
+  FeaturedJobs,
   HelpedCompanies,
   Hero,
   StartPostingJobs,
@@ -13,6 +14,7 @@ function Home() {
       <HelpedCompanies />
       <ExploreCategory />
       <StartPostingJobs />
+      <FeaturedJobs />
     </main>
   );
 }

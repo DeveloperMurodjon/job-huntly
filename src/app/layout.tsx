@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Epilogue, Inter, Red_Hat_Display } from "next/font/google";
 import "./globals.css";
-import { Footer, Header, Providers } from "@/components/index";
+import { Providers } from "@/components/index";
 
 const epilogue = Epilogue({
   variable: "--font-epilogue",
@@ -32,11 +32,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${epilogue.variable} ${redHat.variable} antialiased`}
       >
-        <Providers>
-          <Header />
-          {children}
-          <Footer />
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
