@@ -75,7 +75,7 @@ export default function CreateJobForm({ initial, onSuccess, onCancel }: Props) {
           <label className="block text-sm font-medium">{label}</label>
           <input
             type="text"
-            value={(form as any)[key] || ""}
+            value={form[key as keyof JobFormValuesT] || ""}
             onChange={handleChange(key as keyof JobFormValuesT)}
             className="border w-full px-3 py-2 rounded"
             required

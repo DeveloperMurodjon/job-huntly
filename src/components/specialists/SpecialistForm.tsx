@@ -57,7 +57,7 @@ export default function SpecialistForm({
           key={field}
           placeholder={field}
           type="text"
-          value={(form as any)[field] || ""}
+          value={form[field as keyof usersApiT] ?? ""}
           onChange={handleChange(field as keyof usersApiT)}
           className="w-full border rounded px-3 py-2"
           required

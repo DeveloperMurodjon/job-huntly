@@ -1,6 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { Provider, useDispatch } from "react-redux";
+
+import React, { useEffect, useState, ReactNode } from "react";
+import { Provider } from "react-redux";
 import { store } from "@/services/store/store";
 import { ThemeProvider } from "./themeProvider";
 import Header from "@/components/Header";
@@ -9,8 +10,8 @@ import { useRefreshMutation } from "@/services/authApiSlice";
 import { setCredentials, logOut } from "@/features/auth/authSlice";
 import { useRouter } from "next/navigation";
 
-function AuthLoader({ children }: { children: React.ReactNode }) {
-  const dispatch = useDispatch();
+function AuthLoader({ children }: { children: ReactNode }) {
+  const dispatch = store.dispatch;
   const [refresh] = useRefreshMutation();
   const router = useRouter();
   const [ready, setReady] = useState(false);
@@ -21,6 +22,7 @@ function AuthLoader({ children }: { children: React.ReactNode }) {
       setReady(true);
       return;
     }
+
     refresh({ refreshToken: stored })
       .unwrap()
       .then(({ access }) => {
@@ -31,13 +33,17 @@ function AuthLoader({ children }: { children: React.ReactNode }) {
         router.replace("/login");
       })
       .finally(() => setReady(true));
-  }, [dispatch, refresh, router]);
+  }, [refresh, router, dispatch]);
 
   if (!ready) return <div>Loading...</div>;
   return <>{children}</>;
 }
 
-export default function Providers({ children }: any) {
+interface ProvidersProps {
+  children: ReactNode;
+}
+
+export default function Providers({ children }: ProvidersProps) {
   return (
     <Provider store={store}>
       <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
